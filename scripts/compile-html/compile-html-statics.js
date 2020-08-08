@@ -45,7 +45,6 @@ var docPlaygrounds = [];
 module.exports = function(done) {
     var staticCategories = [
         "babylon101",
-        "beginners",
         "resources",
         "extensions",
         "How_To",

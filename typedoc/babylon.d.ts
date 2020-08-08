@@ -10393,6 +10393,8 @@ declare module BABYLON {
         subMeshId: number;
         /** If a sprite was picked, this will be the sprite the pick collided with */
         pickedSprite: Nullable<Sprite>;
+        /** If we are pikcing a mesh with thin instance, this will give you the picked thin instance */
+        thinInstanceIndex: number;
         /**
          * If a mesh was used to do the picking (eg. 6dof controller) this will be populated.
          */
@@ -10426,7 +10428,7 @@ declare module BABYLON {
         direction: Vector3;
         /** length of the ray */
         length: number;
-        private static readonly TmpVector3;
+        private static readonly _TmpVector3;
         private _tmpRay;
         /**
          * Creates a new ray
@@ -10591,6 +10593,8 @@ declare module BABYLON {
             _internalPick(rayFunction: (world: Matrix) => Ray, predicate?: (mesh: AbstractMesh) => boolean, fastCheck?: boolean, onlyBoundingInfo?: boolean, trianglePredicate?: TrianglePickingPredicate): Nullable<PickingInfo>;
             /** @hidden */
             _internalMultiPick(rayFunction: (world: Matrix) => Ray, predicate?: (mesh: AbstractMesh) => boolean, trianglePredicate?: TrianglePickingPredicate): Nullable<PickingInfo[]>;
+            /** @hidden */
+            _internalPickForMesh(pickingInfo: Nullable<PickingInfo>, rayFunction: (world: Matrix) => Ray, mesh: AbstractMesh, world: Matrix, fastCheck?: boolean, onlyBoundingInfo?: boolean, trianglePredicate?: TrianglePickingPredicate): Nullable<PickingInfo>;
         }
 }
 declare module BABYLON {
@@ -11477,7 +11481,7 @@ declare module BABYLON {
          * @param width define the width of the texture
          * @param height define the height of the texture
          * @param format define the format of the data (RGB, RGBA... Engine.TEXTUREFORMAT_xxx)
-         * @param scene  define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps define whether mip maps should be generated or not
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
@@ -11487,7 +11491,7 @@ declare module BABYLON {
         /**
          * Define the format of the data (RGB, RGBA... Engine.TEXTUREFORMAT_xxx)
          */
-        format: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number);
+        format: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number);
         /**
          * Updates the texture underlying data.
          * @param data Define the new data of the texture
@@ -11498,76 +11502,76 @@ declare module BABYLON {
          * @param data Define the texture data
          * @param width Define the width of the texture
          * @param height Define the height of the texture
-         * @param scene Define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps Define whether or not to create mip maps for the texture
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
          * @returns the luminance texture
          */
-        static CreateLuminanceTexture(data: ArrayBufferView, width: number, height: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number): RawTexture;
+        static CreateLuminanceTexture(data: ArrayBufferView, width: number, height: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number): RawTexture;
         /**
          * Creates a luminance alpha texture from some data.
          * @param data Define the texture data
          * @param width Define the width of the texture
          * @param height Define the height of the texture
-         * @param scene Define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps Define whether or not to create mip maps for the texture
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
          * @returns the luminance alpha texture
          */
-        static CreateLuminanceAlphaTexture(data: ArrayBufferView, width: number, height: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number): RawTexture;
+        static CreateLuminanceAlphaTexture(data: ArrayBufferView, width: number, height: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number): RawTexture;
         /**
          * Creates an alpha texture from some data.
          * @param data Define the texture data
          * @param width Define the width of the texture
          * @param height Define the height of the texture
-         * @param scene Define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps Define whether or not to create mip maps for the texture
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
          * @returns the alpha texture
          */
-        static CreateAlphaTexture(data: ArrayBufferView, width: number, height: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number): RawTexture;
+        static CreateAlphaTexture(data: ArrayBufferView, width: number, height: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number): RawTexture;
         /**
          * Creates a RGB texture from some data.
          * @param data Define the texture data
          * @param width Define the width of the texture
          * @param height Define the height of the texture
-         * @param scene Define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps Define whether or not to create mip maps for the texture
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
          * @param type define the format of the data (int, float... Engine.TEXTURETYPE_xxx)
          * @returns the RGB alpha texture
          */
-        static CreateRGBTexture(data: ArrayBufferView, width: number, height: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number): RawTexture;
+        static CreateRGBTexture(data: ArrayBufferView, width: number, height: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number): RawTexture;
         /**
          * Creates a RGBA texture from some data.
          * @param data Define the texture data
          * @param width Define the width of the texture
          * @param height Define the height of the texture
-         * @param scene Define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps Define whether or not to create mip maps for the texture
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
          * @param type define the format of the data (int, float... Engine.TEXTURETYPE_xxx)
          * @returns the RGBA texture
          */
-        static CreateRGBATexture(data: ArrayBufferView, width: number, height: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number): RawTexture;
+        static CreateRGBATexture(data: ArrayBufferView, width: number, height: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number): RawTexture;
         /**
          * Creates a R texture from some data.
          * @param data Define the texture data
          * @param width Define the width of the texture
          * @param height Define the height of the texture
-         * @param scene Define the scene the texture belongs to
+         * @param sceneOrEngine defines the scene or engine the texture will belong to
          * @param generateMipMaps Define whether or not to create mip maps for the texture
          * @param invertY define if the data should be flipped on Y when uploaded to the GPU
          * @param samplingMode define the texture sampling mode (Texture.xxx_SAMPLINGMODE)
          * @param type define the format of the data (int, float... Engine.TEXTURETYPE_xxx)
          * @returns the R texture
          */
-        static CreateRTexture(data: ArrayBufferView, width: number, height: number, scene: Scene, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number): RawTexture;
+        static CreateRTexture(data: ArrayBufferView, width: number, height: number, sceneOrEngine: Nullable<Scene | ThinEngine>, generateMipMaps?: boolean, invertY?: boolean, samplingMode?: number, type?: number): RawTexture;
     }
 }
 declare module BABYLON {
@@ -12065,7 +12069,7 @@ declare module BABYLON {
          * Get hosting scene
          * @returns the scene
          */
-        getScene(): Scene;
+        getScene(): Nullable<Scene>;
         /**
          * You can use gravity if you want to give an orientation to your particles.
          */
@@ -12216,7 +12220,11 @@ declare module BABYLON {
         /**
          * The scene the particle system belongs to.
          */
-        protected _scene: Scene;
+        protected _scene: Nullable<Scene>;
+        /**
+         * The engine the particle system belongs to.
+         */
+        protected _engine: ThinEngine;
         /**
          * Local cache of defines for image processing.
          */
@@ -12224,17 +12232,17 @@ declare module BABYLON {
         /**
          * Default configuration related to image processing available in the standard Material.
          */
-        protected _imageProcessingConfiguration: ImageProcessingConfiguration;
+        protected _imageProcessingConfiguration: Nullable<ImageProcessingConfiguration>;
         /**
          * Gets the image processing configuration used either in this material.
          */
-        get imageProcessingConfiguration(): ImageProcessingConfiguration;
+        get imageProcessingConfiguration(): Nullable<ImageProcessingConfiguration>;
         /**
          * Sets the Default image processing configuration used either in the this material.
          *
          * If sets to null, the scene one is in use.
          */
-        set imageProcessingConfiguration(value: ImageProcessingConfiguration);
+        set imageProcessingConfiguration(value: Nullable<ImageProcessingConfiguration>);
         /**
          * Attaches a new image processing configuration to the Standard Material.
          * @param configuration
@@ -12371,15 +12379,15 @@ declare module BABYLON {
          */
         serialize(): any;
         /** @hidden */
-        static _ParseParticleSystem(system: any, scene: Scene, rootUrl: string): ParticleSystem;
+        static _ParseParticleSystem(system: any, sceneOrEngine: Scene | ThinEngine, rootUrl: string): ParticleSystem;
         /**
          * Creates a new SubEmitter from a serialized JSON version
          * @param serializationObject defines the JSON object to read from
-         * @param scene defines the hosting scene
+         * @param sceneOrEngine defines the hosting scene or the hosting engine
          * @param rootUrl defines the rootUrl for data loading
          * @returns a new SubEmitter
          */
-        static Parse(serializationObject: any, scene: Scene, rootUrl: string): SubEmitter;
+        static Parse(serializationObject: any, sceneOrEngine: Scene | ThinEngine, rootUrl: string): SubEmitter;
         /** Release associated resources */
         dispose(): void;
     }
@@ -12502,6 +12510,8 @@ declare module BABYLON {
         private readonly _rawTextureWidth;
         private _rampGradientsTexture;
         private _useRampGradients;
+        /** Gets or sets a matrix to use to compute projection */
+        defaultProjectionMatrix: Matrix;
         /** Gets or sets a boolean indicating that ramp gradients must be used
          * @see https://doc.babylonjs.com/babylon101/particles#ramp-gradients
          */
@@ -12573,12 +12583,12 @@ declare module BABYLON {
          * Particles are often small sprites used to simulate hard-to-reproduce phenomena like fire, smoke, water, or abstract visual effects like magic glitter and faery dust.
          * @param name The name of the particle system
          * @param capacity The max number of particles alive at the same time
-         * @param scene The scene the particle system belongs to
+         * @param sceneOrEngine The scene the particle system belongs to or the engine to use if no scene
          * @param customEffect a custom effect used to change the way particles are rendered by default
          * @param isAnimationSheetEnabled Must be true if using a spritesheet to animate the particles texture
          * @param epsilon Offset used to render the particles
          */
-        constructor(name: string, capacity: number, scene: Scene, customEffect?: Nullable<Effect>, isAnimationSheetEnabled?: boolean, epsilon?: number);
+        constructor(name: string, capacity: number, sceneOrEngine: Scene | ThinEngine, customEffect?: Nullable<Effect>, isAnimationSheetEnabled?: boolean, epsilon?: number);
         private _addFactorGradient;
         private _removeFactorGradient;
         /**
@@ -12868,16 +12878,16 @@ declare module BABYLON {
         /** @hidden */
         static _Serialize(serializationObject: any, particleSystem: IParticleSystem, serializeTexture: boolean): void;
         /** @hidden */
-        static _Parse(parsedParticleSystem: any, particleSystem: IParticleSystem, scene: Scene, rootUrl: string): void;
+        static _Parse(parsedParticleSystem: any, particleSystem: IParticleSystem, sceneOrEngine: Scene | ThinEngine, rootUrl: string): void;
         /**
          * Parses a JSON object to create a particle system.
          * @param parsedParticleSystem The JSON object to parse
-         * @param scene The scene to create the particle system in
+         * @param sceneOrEngine The scene or the engine to create the particle system in
          * @param rootUrl The root url to use to load external dependencies like texture
          * @param doNotStart Ignore the preventAutoStart attribute and does not start
          * @returns the Parsed particle system
          */
-        static Parse(parsedParticleSystem: any, scene: Scene, rootUrl: string, doNotStart?: boolean): ParticleSystem;
+        static Parse(parsedParticleSystem: any, sceneOrEngine: Scene | ThinEngine, rootUrl: string, doNotStart?: boolean): ParticleSystem;
     }
 }
 declare module BABYLON {
@@ -13074,7 +13084,7 @@ declare module BABYLON {
          * @param serializationObject defines the JSON object
          * @param scene defines the hosting scene
          */
-        parse(serializationObject: any, scene: Scene): void;
+        parse(serializationObject: any, scene: Nullable<Scene>): void;
     }
 }
 declare module BABYLON {
@@ -13851,7 +13861,7 @@ declare module BABYLON {
          * @param serializationObject defines the JSON object
          * @param scene defines the hosting scene
          */
-        parse(serializationObject: any, scene: Scene): void;
+        parse(serializationObject: any, scene: Nullable<Scene>): void;
     }
 }
 declare module BABYLON {
@@ -13900,7 +13910,7 @@ declare module BABYLON {
         /**
          * The texture used to render each particle. (this can be a spritesheet)
          */
-        particleTexture: Nullable<Texture>;
+        particleTexture: Nullable<BaseTexture>;
         /**
          * Blend mode use to render the particle, it can be either ParticleSystem.BLENDMODE_ONEONE, ParticleSystem.BLENDMODE_STANDARD or ParticleSystem.BLENDMODE_ADD.
          */
@@ -14067,6 +14077,8 @@ declare module BABYLON {
         isLocal: boolean;
         /** Snippet ID if the particle system was created from the snippet server */
         snippetId: string;
+        /** Gets or sets a matrix to use to compute projection */
+        defaultProjectionMatrix: Matrix;
         /**
          * Gets the maximum number of particles active at the same time.
          * @returns The max number of active particles.
@@ -14479,7 +14491,7 @@ declare module BABYLON {
          * Get hosting scene
          * @returns the scene
          */
-        getScene(): Scene;
+        getScene(): Nullable<Scene>;
     }
 }
 declare module BABYLON {
@@ -18327,6 +18339,12 @@ declare module BABYLON {
          * @param target Defines the new target as a Vector or a mesh
          */
         setTarget(target: Vector3): void;
+        /**
+         * Defines the target point of the camera.
+         * The camera looks towards it form the radius distance.
+         */
+        get target(): Vector3;
+        set target(value: Vector3);
         /**
          * Return the current target position of the camera. This value is expressed in local space.
          * @returns the target position
@@ -27935,6 +27953,7 @@ declare module BABYLON {
         matrixBufferSize: number;
         matrixData: Nullable<Float32Array>;
         boundingVectors: Array<Vector3>;
+        worldMatrices: Nullable<Matrix[]>;
     }
     /**
      * Class used to represent renderable models
@@ -32408,10 +32427,11 @@ declare module BABYLON {
          * @param fastCheck defines if fast mode (but less precise) must be used (false by default)
          * @param trianglePredicate defines an optional predicate used to select faces when a mesh intersection is detected
          * @param onlyBoundingInfo defines a boolean indicating if picking should only happen using bounding info (false by default)
+         * @param worldToUse defines the world matrix to use to get the world coordinate of the intersection point
          * @returns the picking info
          * @see https://doc.babylonjs.com/babylon101/intersect_collisions_-_mesh
          */
-        intersects(ray: Ray, fastCheck?: boolean, trianglePredicate?: TrianglePickingPredicate, onlyBoundingInfo?: boolean): PickingInfo;
+        intersects(ray: Ray, fastCheck?: boolean, trianglePredicate?: TrianglePickingPredicate, onlyBoundingInfo?: boolean, worldToUse?: Matrix): PickingInfo;
         /**
          * Clones the current mesh
          * @param name defines the mesh name
@@ -33832,8 +33852,8 @@ declare module BABYLON {
          * Define the current state of the loading sequence when in delayed load mode.
          */
         delayLoadState: number;
-        private _scene;
-        private _engine;
+        protected _scene: Nullable<Scene>;
+        protected _engine: Nullable<ThinEngine>;
         /** @hidden */
         _texture: Nullable<InternalTexture>;
         private _uid;
@@ -42659,6 +42679,7 @@ declare module BABYLON {
         /**
          * Defines the target point of the camera.
          * The camera looks towards it form the radius distance.
+         * Please note that you can set the target to a mesh and thus the target will be copied from mesh.position
          */
         get target(): Vector3;
         set target(value: Vector3);
@@ -44520,9 +44541,9 @@ declare module BABYLON {
         beta: number;
         /** The radius of the camera from its target */
         radius: number;
-        /** Define the camera target (the mesh it should follow) */
-        target: Nullable<AbstractMesh>;
         private _cartesianCoordinates;
+        /** Define the camera target (the mesh it should follow) */
+        private _meshTarget;
         /**
          * Instantiates a new ArcFollowCamera
          * @see https://doc.babylonjs.com/features/cameras#follow-camera
@@ -46829,6 +46850,14 @@ declare module BABYLON {
         private _referencedPosition;
         private _xrInvPositionCache;
         private _xrInvQuaternionCache;
+        /**
+         * Observable raised before camera teleportation
+         */
+        onBeforeCameraTeleport: Observable<Vector3>;
+        /**
+         *  Observable raised after camera teleportation
+         */
+        onAfterCameraTeleport: Observable<Vector3>;
         /**
          * Should position compensation execute on first frame.
          * This is used when copying the position from a native (non XR) camera
@@ -50120,7 +50149,9 @@ declare module BABYLON {
         protected _interactionsEnabled: boolean;
         protected _attachedNodeChanged(value: Nullable<Node>): void;
         private _beforeRenderObserver;
+        private _tempQuaternion;
         private _tempVector;
+        private _tempVector2;
         /**
          * Creates a gizmo
          * @param gizmoLayer The utility layer the gizmo will be added to
@@ -50952,6 +50983,10 @@ declare module BABYLON.Debug {
         get material(): StandardMaterial;
         /** Sets the material */
         set material(value: StandardMaterial);
+        /** Gets the material */
+        get displayMode(): number;
+        /** Sets the material */
+        set displayMode(value: number);
         /**
          * Creates a new SkeletonViewer
          * @param skeleton defines the skeleton to render
@@ -50990,6 +51025,10 @@ declare module BABYLON.Debug {
         private _buildSpheresAndSpurs;
         /** Update the viewer to sync with current skeleton state, only used for the line display. */
         private _displayLinesUpdate;
+        /** Changes the displayMode of the skeleton viewer
+         * @param mode The displayMode numerical value
+         */
+        changeDisplayMode(mode: number): void;
         /** Release associated resources */
         dispose(): void;
     }
@@ -52413,6 +52452,9 @@ declare module BABYLON {
         clear(color: Nullable<IColor4Like>, backBuffer: boolean, depth: boolean, stencil?: boolean): void;
         createIndexBuffer(indices: IndicesArray, updateable?: boolean): NativeDataBuffer;
         createVertexBuffer(data: DataArray, updateable?: boolean): NativeDataBuffer;
+        bindBuffers(vertexBuffers: {
+            [key: string]: VertexBuffer;
+        }, indexBuffer: Nullable<NativeDataBuffer>, effect: Effect): void;
         recordVertexArrayObject(vertexBuffers: {
             [key: string]: VertexBuffer;
         }, indexBuffer: Nullable<NativeDataBuffer>, effect: Effect): WebGLVertexArrayObject;
@@ -66263,6 +66305,10 @@ declare module BABYLON {
 declare module BABYLON {
         interface Mesh {
             /**
+             * Gets or sets a boolean defining if we want picking to pick thin instances as well
+             */
+            thinInstanceEnablePicking: boolean;
+            /**
              * Creates a new thin instance
              * @param matrix the matrix or array of matrices (position, rotation, scale) of the thin instance(s) to create
              * @param refresh true to refresh the underlying gpu buffer (default: true). If you do multiple calls to this method in a row, set refresh to true only for the last call to save performance
@@ -66308,6 +66354,11 @@ declare module BABYLON {
              * @param staticBuffer indicates that the buffer is static, so that you won't change it after it is set (better performances - false by default)
              */
             thinInstanceSetBuffer(kind: string, buffer: Nullable<Float32Array>, stride: number, staticBuffer: boolean): void;
+            /**
+             * Gets the list of world matrices
+             * @return an array containing all the world matrices from the thin instances
+             */
+            thinInstanceGetWorldMatrices(): Matrix[];
             /**
              * Synchronize the gpu buffers with a thin instance buffer. Call this method if you update later on the buffers passed to thinInstanceSetBuffer
              * @param kind name of the attribute to update. Use "matrix" to update the buffer of matrices
@@ -67038,7 +67089,6 @@ declare module BABYLON {
         private _targetIndex;
         private _sourceBuffer;
         private _targetBuffer;
-        private _engine;
         private _currentRenderId;
         private _started;
         private _stopped;
@@ -67079,6 +67129,8 @@ declare module BABYLON {
          * Specifies if the particles are updated in emitter local space or world space.
          */
         isLocal: boolean;
+        /** Gets or sets a matrix to use to compute projection */
+        defaultProjectionMatrix: Matrix;
         /**
          * Is this system ready to be used/rendered
          * @return true if the system is ready
@@ -67335,14 +67387,14 @@ declare module BABYLON {
          * Particles are often small sprites used to simulate hard-to-reproduce phenomena like fire, smoke, water, or abstract visual effects like magic glitter and faery dust.
          * @param name The name of the particle system
          * @param options The options used to create the system
-         * @param scene The scene the particle system belongs to
+         * @param sceneOrEngine The scene the particle system belongs to or the engine to use if no scene
          * @param isAnimationSheetEnabled Must be true if using a spritesheet to animate the particles texture
          * @param customEffect a custom effect used to change the way particles are rendered by default
          */
         constructor(name: string, options: Partial<{
             capacity: number;
             randomTextureSize: number;
-        }>, scene: Scene, isAnimationSheetEnabled?: boolean, customEffect?: Nullable<Effect>);
+        }>, sceneOrEngine: Scene | ThinEngine, isAnimationSheetEnabled?: boolean, customEffect?: Nullable<Effect>);
         protected _reset(): void;
         private _createUpdateVAO;
         private _createRenderVAO;
@@ -67410,12 +67462,12 @@ declare module BABYLON {
         /**
          * Parses a JSON object to create a GPU particle system.
          * @param parsedParticleSystem The JSON object to parse
-         * @param scene The scene to create the particle system in
+         * @param sceneOrEngine The scene or the engine to create the particle system in
          * @param rootUrl The root url to use to load external dependencies like texture
          * @param doNotStart Ignore the preventAutoStart attribute and does not start
          * @returns the parsed GPU particle system
          */
-        static Parse(parsedParticleSystem: any, scene: Scene, rootUrl: string, doNotStart?: boolean): GPUParticleSystem;
+        static Parse(parsedParticleSystem: any, sceneOrEngine: Scene | ThinEngine, rootUrl: string, doNotStart?: boolean): GPUParticleSystem;
     }
 }
 declare module BABYLON {
@@ -76244,6 +76296,14 @@ declare module BABYLON.GUI {
         get verticalAlignment(): number;
         set verticalAlignment(value: number);
         /**
+         * Gets or sets a fixed ratio for this control.
+         * When different from 0, the ratio is used to compute the "second" dimension.
+         * The first dimension used in the computation is the last one set (by setting width / widthInPixels or height / heightInPixels), and the
+         * second dimension is computed as first dimension * fixedRatio
+         */
+        fixedRatio: number;
+        private _fixedRatioMasterIsWidth;
+        /**
          * Gets or sets control width
          * @see https://doc.babylonjs.com/how_to/gui#position-and-size
          */
@@ -76912,6 +76972,7 @@ declare module BABYLON.GUI {
         private _sliceTop;
         private _sliceBottom;
         private _detectPointerOnOpaqueOnly;
+        private _imageDataCache;
         /**
          * BABYLON.Observable notified when the content is loaded
          */
@@ -79639,6 +79700,10 @@ declare module BABYLON {
          */
         alwaysComputeBoundingBox: boolean;
         /**
+         * If true, load all materials defined in the file, even if not used by any mesh. Defaults to false.
+         */
+        loadAllMaterials: boolean;
+        /**
          * Function called before loading a url referenced by the asset.
          */
         preprocessUrlAsync: (url: string) => Promise<string>;
@@ -81144,6 +81209,24 @@ declare module BABYLON.GLTF2.Loader.Extensions {
         dispose(): void;
         /** @hidden */
         loadNodeAsync(context: string, node: INode, assign: (babylonTransformNode: TransformNode) => void): Nullable<Promise<TransformNode>>;
+    }
+}
+declare module BABYLON.GLTF2.Loader.Extensions {
+    /**
+     * [Specification](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/EXT_texture_webp/)
+     */
+    export class EXT_texture_webp implements IGLTFLoaderExtension {
+        /** The name of this extension. */
+        readonly name: string;
+        /** Defines whether this extension is enabled. */
+        enabled: boolean;
+        private _loader;
+        /** @hidden */
+        constructor(loader: GLTFLoader);
+        /** @hidden */
+        dispose(): void;
+        /** @hidden */
+        _loadTextureAsync(context: string, texture: ITexture, assign: (babylonTexture: BaseTexture) => void): Nullable<Promise<BaseTexture>>;
     }
 }
 declare module BABYLON.GLTF2.Loader.Extensions {
@@ -84298,6 +84381,15 @@ declare module BABYLON.GLTF2 {
 
     /** @hidden */
     interface IKHRTextureBasisU {
+        source: number;
+    }
+
+    /**
+     * Interfaces from the EXT_texture_webp extension
+     */
+
+    /** @hidden */
+    interface IEXTTextureWebP {
         source: number;
     }
 

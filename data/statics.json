@@ -1,24 +1,40 @@
 {
-    "beginners": [{
-        "title": "All",
-        "name": "beginners",
-        "desc": "Tester"
-        },
-        {
-            "title": "Beginners",
-            "name": "beginners",
-            "desc": "Start with babylon.js",
-            "files": [{
-                    "title": "Hello World",
-                    "filename": "hello_world"
-                }
-            ]
-        }
-    ],
     "babylon101": [{
             "title": "All",
             "name": "babylon101",
             "desc": "The How To of 101."
+        },
+        {
+            "title": "Floor1",
+            "name": "floor1",
+            "desc": "Babylon 1.1.1",
+            "files": [{
+                    "title": "Welcome",
+                    "filename": "welcome"
+                },
+                {
+                    "title": "Mesh Groundwork",
+                    "filename": "ground"
+                },
+                {
+                    "title": "Mesh Placement",
+                    "filename": "placement"
+                }
+            ]
+        },
+        {
+            "title": "Floor2",
+            "name": "floor2",
+            "desc": "Babylon 1.1.2",
+            "files": [{
+                    "title": "Position",
+                    "filename": "position"
+                },
+                {
+                    "title": "Rotation",
+                    "filename": "rotation"
+                }
+            ]
         },
         {
             "title": "Babylon101",
@@ -47,11 +63,6 @@
                     "title": "Parametric Shapes",
                     "filename": "Parametric_Shapes",
                     "abstract": "Parametric shapes are a special kind of meshes. Their final shape depend upon some parameters. You can create a ribon using this for instance."
-                },
-                {
-                    "title": "Position and Rotation",
-                    "filename": "Position",
-                    "abstract": "This tutorial, we are going to learn how to position  and rotate any kind of objects in a 3D scene."
                 },
                 {
                     "title": "Materials",
