@@ -1,5 +1,5 @@
-1-1-1-0
-# Welcome
+# Getting Started Chapter 
+## Welcome
 Welcome to the wonderful 3D world of Babylon.js. Instead of the usual 'Hello World' introduction we will build a simple world, step by step, demonstrating the facilities of Babylon.js. All you need is a [scene]() to contain the world, a [camera]() to view it, a [light]() to illuminate it and at least one viewable object. All viewable objects, whether just a box or a complex character, are made from a [mesh]() of triangles or facets.
 
 ![wireframe](/img/campus/wireframe.png)  
@@ -9,7 +9,7 @@ After working through the first level and gaining a basic understanding of the p
 
 All you need to start coding with Babylon.js is a working knowledge of JavaScript. The [Babylon.js Playground](), or just playground, allows us to present examples within the documentation for you to follow, explore and edit. Of course, at some stage you will want to [publish]() your own code and following the template of the playground code gives you an easy way to transfer code back and forth between the two.
 
-# Say Hello to Your First World
+## Say Hello to Your First World
 
 A simple box mesh is where we start after we use the Babylon.js Engine to set the scene, add a camera and light.
 

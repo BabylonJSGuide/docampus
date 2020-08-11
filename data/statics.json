@@ -5,8 +5,8 @@
             "desc": "The How To of 101."
         },
         {
-            "title": "Floor1",
-            "name": "floor1",
+            "title": "Library",
+            "name": "library",
             "desc": "Babylon 1.1.1",
             "files": [{
                     "title": "Welcome",
@@ -19,20 +19,26 @@
                 {
                     "title": "Mesh Placement",
                     "filename": "placement"
-                }
-            ]
-        },
-        {
-            "title": "Floor2",
-            "name": "floor2",
-            "desc": "Babylon 1.1.2",
-            "files": [{
+                },
+                {
                     "title": "Position",
                     "filename": "position"
                 },
                 {
                     "title": "Rotation",
                     "filename": "rotation"
+                },
+                {
+                    "title": "Sequencing Rotations",
+                    "filename": "sequence_rotations"
+                },
+                {
+                    "title": "Rotation Quaternions",
+                    "filename": "rotation_quaternions"
+                },
+                {
+                    "title": "Target Axes Alignment ",
+                    "filename": "target_align"
                 }
             ]
         },

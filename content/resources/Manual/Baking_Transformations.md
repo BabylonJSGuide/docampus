@@ -1,4 +1,5 @@
-# Baking Transformations
+# Transformation Chapter Page 9
+## Baking Transformations
 
 Usually, within Babylon.js, the translations, rotations and scaling of a mesh change its world matrix only and the vertex position data of a mesh is left unchanged. In certain situations you might be interested in applying a transform (position, rotation, scale) directly to the mesh vertices, instead of saving it as a the world matrix property of the mesh. This is called baking, and can be useful in the following situations:
 
@@ -131,12 +132,4 @@ mesh.updateVerticesData(VertexBuffer.NormalKind, normals, false, false);
 
 **Note:**  recomputing the normals of your mesh may not be an ideal solution, as the results may be wrong in some parts of the mesh (e.g. seams on a sphere).
 
-# Further Reading
-
-## How To
-
-- [How To Update Vertex Data](/how_to/updating_vertices)
-
-## Resources
-
-- [Vertex Normals](/resources/normals)  
+[Prev](/resources/frame_of_reference) Frame of Reference

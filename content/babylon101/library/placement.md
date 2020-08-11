@@ -1,7 +1,7 @@
-1-1-1-1B
-# Mesh Placement
+# Getting Started Chapter Page 2
+## Scale and Place
 
-## Size
+### Size
 Some meshes, such as box and ground have option properties that you can set to change during their creation.
 
 ```javascript
@@ -22,12 +22,12 @@ const box = BABYLON.MeshBuilder.CreateBox("box", {}); //unit cube
 box.scaling = new BABYLON.Vector3(2, 1.5, 3);
 ```
 
-As you can see, from the above codes, scaling is a vector object with properties x, y, and z
+As you can see, from the above codes, scaling is a vector object with properties x, y, and z.
 
 All three of the above sets of codes will produce boxes of the same size
 
-## Position
-For the majority of meshes the position property places the center of the mesh at that position. Position is also a vector object with properties x, y, and z, so that the following two sets of codes position the box in the same place.
+### Position
+For the majority of meshes the [position](/babylon101/position) property places the center of the mesh at that position. Position is also a vector object with properties x, y, and z, so that the following two sets of codes position the box in the same place.
 
 ```javascript
 box.position.x = -2;
@@ -41,12 +41,11 @@ box.position = new BABYLON.Vector3(-2, 4.2, 0.1);
 
 We can now use positions to place the boxes sized in three different ways in one playground. In each case the height of a box is 1.5 and therefore for each box position.y = 0.75 to place it on the ground.
 
-[Mesh Positions Level ^](/babylon101/position)
 
 https://www.babylonjs-playground.com/#KBS9I5#2
 
-## Orientation
-As for scaling and position the rotation property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
+### Orientation
+As for scaling and position the [rotation](/babylon101/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
 
 Rotations are given in radians. If you prefer working in degrees Babylon.js provides a conversion tool. Both these lines of code with produce the same rotation.
 
@@ -57,8 +56,8 @@ box.rotation.y = BABYLON.Tools.toDegrees(45);
 
 https://www.babylonjs-playground.com/#KBS9I5#3
 
-[Mesh Rotations Level ^](/babylon101/rotation)
-
 We can now change the size, position and orientate a mesh adding a little more variation to the box as a building. Before we place more boxes in the scene let us see if we can make them a little more building like.
 
-[Next]() More mesh types (meshes 1C)
+[Next]() More mesh types
+
+[Transformation Chapter](/babylon101/position) More on Mesh Transformations

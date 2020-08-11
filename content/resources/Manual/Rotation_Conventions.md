@@ -1,8 +1,4 @@
-# Rotation Conventions
-
-There are several methods of achieving rotations within BabylonJS all of which use a particular convention.
-
-
+# Transformation Chapter Page 6
 ## Euler Angles
 
 In 3D space Euler angles can produce any possible orientation by providing three angles to rotate about each of three axes in a given order.  
@@ -58,35 +54,6 @@ mesh.rotation = new BABYLON.Vector(alpha, beta, gamma);
 which will produce this orientation whatever the orientation of the mesh prior to its application. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
 * [Playground Example - ZXY](https://www.babylonjs-playground.com/#1ST43U#52)
-
-
-## Quaternions
-
-Imagine a disc with an axle through its center. The disc is able to rotate about the axle. The diagram below shows the disc at several different rotation points around the axle.
-
-![disc rotate](/img/how_to/Mesh/quat1.jpg)
-
-For all rotations of the disc the axle can be tilted as seen in the diagram below.
-
-![disc rotate and axle tilt](/img/how_to/Mesh/quat2.jpg)
-
-Together a rotation of the disc and a tilt of the axle can produce all possible 3D orientations of the disc. The tilt, or direction, of the axle can be given by a vector along the axle. This means that another way of giving the orientation of a mesh is with a vector (axle direction) and a rotation (of the disc).
-
-So one way of producing any possible orientation is to use four values, three for the axis and one for the angle of rotation. Such a four dimensional vector is a rotational quaternion.
-
-In Babylon.js this is obtained by using
-
-```javascript
-mesh.rotationQuaternion = new BABYLON.Quaternion.RotationAxis(axis, angle);
-```
-
-where axis is a Vector3 and the angle is the rotation in radians. 
-
-### Historical Warning 
-When using BabylonJS versions &lt; 4.00 you cannot use both a **rotation** and a **rotationQuaternion** on a mesh. When a **rotationQuaternion** is applied to a mesh this overwrites the current and subsequent use of **rotation** producing the wrong orientation. Should you want to use **rotation** after a **rotationQuaternion** has been applied, for example on an imported mesh, then the **rotationQuaternion** has to be set to _null_. 
-
-From version 4 onwards, in limited situations, the setting of **rotationQuaternion** to _null_ is done automatically on whenever **rotation** is set directly. When using, for example, physics, the NullEngine or even `rotation.set(0.23, 0.17, 1.84)` you find rotation errors it is worth setting **rotationQuaternion** to _null_ before updating **rotation**.
-
 
 ## Euler Angles to Quaternions
 
@@ -152,3 +119,5 @@ of a just created box using the _rotate_ method. The _rotate_ method achieves th
 
 * [Playground Example Random Orientation to Euler Angles for mesh.rotation](https://www.babylonjs-playground.com/#1ST43U#7)
 
+[Prev](/babylon101/target_align) Target Axis Alignment  
+[Next](/how_to/transform_coordinates) Transform Coordinates
