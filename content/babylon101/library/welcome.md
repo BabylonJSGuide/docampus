@@ -50,4 +50,4 @@ https://www.babylonjs-playground.com/#KBS9I5
 
 For the moment we will concentrate on creating the parts of the world you can see rather than the scene, camera and light.
 
-[Next](/babylon101/ground) Grounding the world (meshes 1A).
+[Next](/babylon101/ground) Grounding the world

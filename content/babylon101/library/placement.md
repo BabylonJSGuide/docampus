@@ -58,6 +58,7 @@ https://www.babylonjs-playground.com/#KBS9I5#3
 
 We can now change the size, position and orientate a mesh adding a little more variation to the box as a building. Before we place more boxes in the scene let us see if we can make them a little more building like.
 
-[Next]() More mesh types
+[Prev](/babylon101/ground) Adding a Ground  
+[Next](/babylon101/variation) More mesh types
 
 [Transformation Chapter](/babylon101/position) More on Mesh Transformations

@@ -42,6 +42,6 @@ These images show how, using the last three methods in local space, the orientat
 
 The given vectors are applied in the local space of the mesh, the axes of which rotate with the mesh.
 
-[Next](/babylon101/rotation) Rotation
+[Next](/babylon101/rotation) Rotation  
 
 [Getting Started Chapter](/babylon101/placement)

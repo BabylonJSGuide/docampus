@@ -21,6 +21,32 @@
                     "filename": "placement"
                 },
                 {
+                    "title": "Mesh Types",
+                    "filename": "variation"
+                },
+                {
+                    "title": "Material",
+                    "filename": "material"
+                },
+                {
+                    "title": "Material on a Face",
+                    "filename": "face_material"
+                },
+                {
+                    "title": "Combining Meshes",
+                    "filename": "combine"
+                },
+                {
+                    "title": "Copying Meshes",
+                    "filename": "copies"
+                }
+            ]
+        },
+        {
+            "title": "Transformations",
+            "name": "transforms",
+            "desc": "Babylon 1.1.1",
+            "files": [{
                     "title": "Position",
                     "filename": "position"
                 },

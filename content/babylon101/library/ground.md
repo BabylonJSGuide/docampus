@@ -21,6 +21,9 @@ box.position.y = 0.5;  //box created with default size so height is 1
 
 https://www.babylonjs-playground.com/#KBS9I5#1
 
+![house 0](/img/campus/house0.png)
+
 Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.
 
+[Prev](/babylon101/welcome) Welcome  
 [Next](/babylon101/placement) How to set the position, orientation and size of a mesh.
