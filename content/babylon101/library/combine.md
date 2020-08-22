@@ -9,7 +9,7 @@ In our case this would be
 ```javascript
 const house = BABYLON.Mesh.MergeMeshes([box, roof])
 ```
-https://www.babylonjs-playground.com/#KBS9I5#11
+https://www.babylonjs-playground.com/#KBS9I5#19
 
 ![house 5](/img/campus/house5.png)
 
@@ -19,7 +19,7 @@ const house = BABYLON.Mesh.MergeMeshes([box, roof], true, false, null, false, tr
 ```
 At this stage it is important to note that the second parameter being true disposes of the original meshes and the last parameter being true allows the original material to be applied separately to the parts matching the original meshes.
 
-https://www.babylonjs-playground.com/#KBS9I5#11
+https://www.babylonjs-playground.com/#KBS9I5#20
 
 ![house 3](/img/campus/house3.png)
 

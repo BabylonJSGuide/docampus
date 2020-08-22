@@ -39,7 +39,7 @@ const box = BABYLON.MeshBuilder.CreateBox("box", {faceUV: faceUV, wrap: true});
 ```
 Of course we also need to change the image used for the diffuse texture of the box material.
 
-https://www.babylonjs-playground.com/#KBS9I5#8
+https://www.babylonjs-playground.com/#KBS9I5#16
 
 ![house 3](/img/campus/house3.png)
 
@@ -50,14 +50,14 @@ In this case the house is twice as wide and so are parts of the image
 
 The front and back of the house (far left and right of the image) is twice the width of a side (middle image) which we can use twice.
 
-https://www.babylonjs-playground.com/#KBS9I5#9
+https://www.babylonjs-playground.com/#KBS9I5#17
 
 ![house 4](/img/campus/house4.png)
 
 ## Moving On
 Having created our houses we would like many copies of them to form our world. We could make, separately, copies of the boxes and the roofs but it would be easier if we could combine a box and roof into one mesh, a house. Before we do this lets tidy up the code so that we can concentrate on the new code we are adding. To this end we place the existing code into functions.
 
-https://www.babylonjs-playground.com/#KBS9I5#10
+https://www.babylonjs-playground.com/#KBS9I5#18
 
 [Prev](/babylon101/material) Standard Material.  
 [Next](/babylon101/combine) Combine Multiple Meshes into One Mesh.

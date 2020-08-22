@@ -43,7 +43,7 @@ roof.material = roofMat;
 box.material = boxMat;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#5
+https://www.babylonjs-playground.com/#KBS9I5#15
 
 ![house 2](/img/campus/house2.png)
 

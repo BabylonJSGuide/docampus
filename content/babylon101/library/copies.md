@@ -16,7 +16,7 @@ As at this point in our world all the houses will use the same material we will 
 
 Before we do that we combine the building functions to produce a house of width 1 or 2.
 
-https://www.babylonjs-playground.com/#KBS9I5#13
+https://www.babylonjs-playground.com/#KBS9I5#21
 
 We will enlarge the ground and increase the camera radius a little to fit several house on and be able to view them.
 
@@ -33,7 +33,7 @@ for (let i = 0; i < places.length; i++) {
 }
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#14
+https://www.babylonjs-playground.com/#KBS9I5#22
 
 ![Village 1](/img/campus/village1.png)
 
