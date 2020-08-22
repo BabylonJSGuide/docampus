@@ -1,53 +1,15 @@
-# Getting Started Chapter 
-## Welcome
-Welcome to the wonderful 3D world of Babylon.js. Instead of the usual 'Hello World' introduction we will build a simple world, step by step, demonstrating the facilities of Babylon.js. All you need is a [scene]() to contain the world, a [camera]() to view it, a [light]() to illuminate it and at least one viewable object. All viewable objects, whether just a box or a complex character, are made from a [mesh]() of triangles or facets.
+# Getting Started Introduction
+## Introduction 
+Welcome to the wonderful 3D world of Babylon.js. Whoever you are, game, app or web creator or just exploring, this is where you start to learning more about Babylon.js and 3D on the web. Whatever your expertise in these areas, from beginner to a seasoned hand or somewhere in between, we are sure you will find something of interest. You will see that there are many ways you can work with Babylon.js. Broadly speaking we group them into three interest areas, all of which, to varying degrees, require a working knowledge of JavaScript. 
 
-![wireframe](/img/campus/wireframe.png)  
-Wireframe View Showing Mesh Triangles
+1. Developing games or apps for the Web with a focus on coding, using Babylon.js as a 3D extension to Javascript;
+2. Designing games or apps for the Web by loading into Babylon.js the beautiful models and environments you have already produced;
+3. Enhancing the appeal of website through the use of Babylon.js to display products or information in 3D.
 
-After working through the first level and gaining a basic understanding of the possibilities with babylon.js the documentation has a wide range of tutorials to take you from level to level so we can build better worlds and you, your own worlds.
+In moving through Getting Started we will touch on each of these ways as we introduce you to the features of Babylon.js and how to work with them. When you have covered all the chapters you will be aware, at a foundation level, of what Babylon.js has to offer you. Then, or even before that, you can use the documentation to increase your depth of knowledge of Babylon.js. One day you will be finding new ways, of your own, to work with Babylon.js and, who knows, start contributing to it.
 
-All you need to start coding with Babylon.js is a working knowledge of JavaScript. The [Babylon.js Playground](), or just playground, allows us to present examples within the documentation for you to follow, explore and edit. Of course, at some stage you will want to [publish]() your own code and following the template of the playground code gives you an easy way to transfer code back and forth between the two.
+We use the [Babylon.js Playground](), or just playground, to present examples within the documentation for you to follow, explore and edit.
 
-## Say Hello to Your First World
+Now it is time to start learning. Instead of the usual 'Hello World' introduction we will build a simple world, a small village, step by step, demonstrating the features of Babylon.js. The first steps will show you how to use Babylon.js to code a simple model in a scene, to load a model into a scene and how to display the scene or model on the Web. After that, using copies of the model, we will produce the basis of the village and then add more and more items to introduce new features.
 
-A simple box mesh is where we start after we use the Babylon.js Engine to set the scene, add a camera and light.
-
-```javascript
-const scene = new BABYLON.Scene(engine);
-
-const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0), scene);
-camera.attachControl(canvas, true);
-
-const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
-
-const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
-```
-
-Like most meshes created with MeshBuilder the box is created positioned with its center at the origin and needs three parameters. These are a name, *a string*,  options, *a JavaScript object*, and a scene. By leaving the options with no properties the box defaults to one of unit size for its width, height and depth. 
-
-To be usable in a playground we need to place these within a function called **createScene** which has to return a scene. The playground app takes care of the rest.
-
-```javascript
-const createScene =  () => {
-    const scene = new BABYLON.Scene(engine);
-
-    const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
-    camera.attachControl(canvas, true);
-
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
-
-    const box = BABYLON.MeshBuilder.CreateBox("box", {});
-
-    return scene;
-}
-```
-
-Since at this point there is only one scene you may notice that this parameter can be dropped from the camera, light and box as the default is for them to be placed in the current scene.
-
-https://www.babylonjs-playground.com/#KBS9I5
-
-
-For the moment we will concentrate on creating the parts of the world you can see rather than the scene, camera and light.
-
-[Next](/babylon101/ground) Grounding the world
+[Next](/babylon101/first_scene) First Scene and Model

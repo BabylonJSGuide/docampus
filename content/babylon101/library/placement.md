@@ -1,4 +1,4 @@
-# Getting Started Chapter Page 2
+# Getting Started Chapter Page 3
 ## Scale and Place
 
 ### Size

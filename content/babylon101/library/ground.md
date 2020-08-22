@@ -1,4 +1,4 @@
-# Getting Started Chapter Page 1
+# Getting Started Chapter Page 2
 ## Grounding the World
 At the moment we have a box floating in space. To make the scene more world like lets add ground and think of our box as a building set on the ground.
 

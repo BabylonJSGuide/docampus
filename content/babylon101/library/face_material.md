@@ -1,4 +1,4 @@
-# Getting Started Page 5
+# Getting Started Page 6
 ## Standard Material
 
 In the options properties for a box one is *faceUV* and array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.

@@ -1,4 +1,4 @@
-# Getting Started Page 6
+# Getting Started Page 7
 ## Combining Meshes Using Merge Meshes
 This is a straight forwarded way of combining two or more meshes.
 
