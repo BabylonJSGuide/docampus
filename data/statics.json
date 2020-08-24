@@ -37,6 +37,14 @@
                     "filename": "combine"
                 },
                 {
+                    "title": "Exporting and Importing",
+                    "filename": "export_import"
+                },
+                {
+                    "title": "Display on Website",
+                    "filename": "onweb"
+                },
+                {
                     "title": "Copying Meshes",
                     "filename": "copies"
                 }

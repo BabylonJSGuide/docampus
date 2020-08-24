@@ -13,7 +13,7 @@ https://www.babylonjs-playground.com/#KBS9I5#19
 
 ![house 5](/img/campus/house5.png)
 
-The first thing we note is that the whole house is covered in only one of the material used. Fortunately this can be corrected using the multiMultiMaterial parameter of *MergeMeshes, unfortunately this is the final parameter of a long list. The code now looks like
+The first thing we note is that the whole house is covered in only one of the materials used. Fortunately this can be corrected using the multiMultiMaterial parameter of *MergeMeshes*, unfortunately this is the final parameter of a long list. The code now looks like
 ```javascript
 const house = BABYLON.Mesh.MergeMeshes([box, roof], true, false, null, false, true);
 ```
@@ -23,8 +23,10 @@ https://www.babylonjs-playground.com/#KBS9I5#20
 
 ![house 3](/img/campus/house3.png)
 
+Before considering how to make multiple copies of our house we will first: find out the basics of [exporting]() our models; how to [import]() models made with Babylon.js or other software; and how to display your scene or models on your own website.
+
 [Prev](/babylon101/face_materials) Apply Material to Different Faces.  
-[Next](/babylon101/copies) Copying Meshes.
+[Next](/babylon101/export_import) Exporting and Importing.
 
 [Mesh Chapter](/how_to/how_to_merge_meshes) Merge Meshes.
 
