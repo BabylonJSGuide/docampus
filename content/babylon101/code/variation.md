@@ -1,4 +1,4 @@
-# Getting Started Page 4
+# Getting Started - Working With Code
 ## Mesh Types
 Adding a roof would make our box more house like. We need a prism like shape. Luckily we can do that using *CreateCylinder*. Well the name might imply a cylinder rather than a prism however in using it you need to state how may points around the circumference of the cylinder and for a prism we can use three points.
 

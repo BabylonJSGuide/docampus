@@ -59,7 +59,7 @@ As the player keeps on the ground, he/she can't see very far in the distance, so
     terrain.subToleranceX = 8;
     terrain.subToleranceZ = 8;
 ```
-The terrain is then updated less often, this lets more CPU to manage the player behavior and all what can happen or move in the close area around him.  
+The terrain is then updated less often, this let's more CPU to manage the player behavior and all what can happen or move in the close area around him.  
 
 Finally, we could also choose to extend the terrain visible size by setting some LOD in the distance.  
 By example, `LODLimits = [4, 3, 2, 1, 1]` would mean that :  

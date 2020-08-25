@@ -1,4 +1,4 @@
-# Getting Started Page 6
+# Getting Started - Working with Code
 ## Standard Material
 
 In the options properties for a box one is *faceUV* and array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.
@@ -55,7 +55,7 @@ https://www.babylonjs-playground.com/#KBS9I5#17
 ![house 4](/img/campus/house4.png)
 
 ## Moving On
-Having created our detached and semi-detached houses we would like many copies of them to form our world. We could make, separately, copies of the boxes and the roofs but it would be easier if we could combine a box and roof into one mesh, a house. Before we do this lets tidy up the code so that we can concentrate on the new code we are adding. To this end we place the existing code into functions.
+Having created our detached and semi-detached houses we would like many copies of them to form our world. We could make, separately, copies of the boxes and the roofs but it would be easier if we could combine a box and roof into one mesh, a house. Before we do this let's tidy up the code so that we can concentrate on the new code we are adding. To this end we place the existing code into functions.
 
 https://www.babylonjs-playground.com/#KBS9I5#18
 

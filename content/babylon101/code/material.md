@@ -1,4 +1,4 @@
-# Getting Started Page 5
+# Getting Started - Working with Code
 ## Standard Material
 In order to add color and texture to our meshes we apply a material to them. The basic material is the standard material created like this
 

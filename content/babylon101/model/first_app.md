@@ -1,7 +1,7 @@
-# Getting Started
-## Display on a Website
-## From Playground to HTML
-You will have seen that the format needed for any code on the playground is
+# Getting Started - Working with Models
+## A Web Application Template
+
+You will have seen that the template needed for any code on the playground is
 ```javascript
 var createScene = function() {
     var scene = new BABYLON.Scene(engine);
@@ -13,11 +13,9 @@ var createScene = function() {
 
   return scene;
 };
-
-//Additional Custom Functions
 ```
 
-Using this format for any game or app you might be writing you can quickly drop this into your own HTML page using the following as a template.
+By following this format in you own project you can quickly drop it into your own HTML page using the following as a template.
 
 ```javascript
 <!DOCTYPE html>
@@ -43,8 +41,8 @@ Using this format for any game or app you might be writing you can quickly drop 
             }
         </style>
 
-        <script src="https://preview.babylonjs.com/babylon.js"></script>
-        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
         <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
     </head>
 
@@ -75,3 +73,29 @@ Using this format for any game or app you might be writing you can quickly drop 
 
 </html>
 ```
+
+This line
+```javascript
+<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+```
+allows you to import models into your scene.
+
+This line
+```javascript
+<script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+```
+allows you to use a touch screen.
+
+## Examples
+The following loads models into an app.
+
+[First App](/app1.html)
+
+Given just a box is rather uninteresting and creating the app just using all Babylon.js code is as simple
+
+[First Coded App](/app2.html)
+
+let's move on to learning more about using Babylon.js code and build more interesting models. We start with giving our world a ground to build on.
+
+[Prev](/babylon101/import) Importing Models  
+[Next](/babylon101/ground) Grounding the World

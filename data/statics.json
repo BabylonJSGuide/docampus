@@ -5,12 +5,16 @@
             "desc": "The How To of 101."
         },
         {
-            "title": "Library",
-            "name": "library",
-            "desc": "Babylon 1.1.1",
+            "title": "Working With Code",
+            "name": "Code",
+            "desc": "How to Develop Your Game or App Using Code",
             "files": [{
                     "title": "Welcome",
                     "filename": "welcome"
+                },
+                {
+                    "title": "First Scene",
+                    "filename": "first_scene"
                 },
                 {
                     "title": "Mesh Groundwork",
@@ -37,16 +41,32 @@
                     "filename": "combine"
                 },
                 {
-                    "title": "Exporting and Importing",
-                    "filename": "export_import"
-                },
-                {
-                    "title": "Display on Website",
-                    "filename": "onweb"
-                },
-                {
                     "title": "Copying Meshes",
                     "filename": "copies"
+                }
+            ]
+        },
+        {
+            "title": "Working with Models",
+            "name": "model",
+            "desc": "How to Design Your Game and App with Models",
+            "files": [{
+                "title": "Importing Models",
+                "filename": "import"
+                },
+                {
+                    "title": "Putting an App on the Web",
+                    "filename": "first_app"
+                }
+            ]
+        },
+        {
+            "title": "Enhancing Your Website",
+            "name": "Enhance",
+            "desc": "Ways to Add 3D to Enhance Your Website",
+            "files": [{
+                    "title": "Viewing a Model",
+                    "filename": "first_viewer"
                 }
             ]
         },

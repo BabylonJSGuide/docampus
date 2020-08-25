@@ -1,5 +1,4 @@
-# Getting Started Introduction
-## Introduction 
+# Getting Started  - Introduction
 Welcome to the wonderful 3D world of Babylon.js. Whoever you are, game, app or web creator or just exploring, this is where you start to learning more about Babylon.js and 3D on the web. Whatever your expertise in these areas, from beginner to a seasoned hand or somewhere in between, we are sure you will find something of interest. You will see that there are many ways you can work with Babylon.js. Broadly speaking we group them into three interest areas, all of which, to varying degrees, require a working knowledge of JavaScript. 
 
 1. Developing games or apps for the Web with a focus on coding, using Babylon.js as a 3D extension to Javascript;

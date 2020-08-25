@@ -1,6 +1,6 @@
-# Getting Started Chapter Page 2
+# Getting Started - Working with Code
 ## Grounding the World
-At the moment we have a box floating in space. To make the scene more world like lets add ground and think of our box as a building set on the ground.
+At the moment we have a box floating in space. To make the scene more world like let's add ground and think of our box as a building set on the ground.
 
 Adding a ground is simple using
 
@@ -25,5 +25,5 @@ https://www.babylonjs-playground.com/#KBS9I5#1
 
 Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.
 
-[Prev](/babylon101/welcome) Welcome  
+[Prev](/babylon101/first_app) A Web Application Template   
 [Next](/babylon101/placement) How to set the position, orientation and size of a mesh.

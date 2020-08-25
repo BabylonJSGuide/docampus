@@ -1,5 +1,5 @@
-# Getting Started Page 7
-## Copies
+# Getting Started - Working with Code
+## Copying Meshes
 The two main ways to copy a mesh is to clone it or create an instance of it. Cloning gives you an independent copy of a mesh whereas an instance is still linked to the original for its material. You cannot change the material of an instance of a mesh. There are also advanced ways of creating copies which are available in the *Mesh Chapter*
 
 To clone the house use
@@ -39,7 +39,7 @@ for (let i = 0; i < places.length; i++) {
 
 https://www.babylonjs-playground.com/#KBS9I5#24
 
-As before, in order to keep the upper parts of the Editor for newer code we will put the building of these houses into a function.
+As before, in order to keep the upper parts of the playground editor for newer code we will put the building of these houses into a function.
 
 ![Village 1](/img/campus/village1.png)
 

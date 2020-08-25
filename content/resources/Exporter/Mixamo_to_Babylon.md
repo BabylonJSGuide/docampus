@@ -76,7 +76,7 @@ before "instances":[]. Save your .babylon file.
 
 Go to [Babylon.js Sandbox](https://sandbox.babylonjs.com/). Drag your .babylon file into the browser.
 
-autoAnimate lets your model animate automatically when dragged into the Babylon.js Sandbox. Why autoAnimateTo frame 152? According to the Sandbox animation and the image of the .babylon file below, all 3 animations (Kick, Punch, and TPose) take a total of 152 frames.
+autoAnimate let's your model animate automatically when dragged into the Babylon.js Sandbox. Why autoAnimateTo frame 152? According to the Sandbox animation and the image of the .babylon file below, all 3 animations (Kick, Punch, and TPose) take a total of 152 frames.
 
 ![image12a](/img/exporters/mixamo/12a.png)
 

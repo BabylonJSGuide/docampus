@@ -1,8 +1,8 @@
-# Getting Started Chapter Page 3
+# Getting Started - Working with Code
 ## Scale and Place
 
 ### Size
-Some meshes, such as box and ground have option properties that you can set to change during their creation.
+Some meshes, such as box, have properties that you can set to change during their creation.
 
 ```javascript
 const box = BABYLON.MeshBuilder.CreateBox("box", {width: 2, height: 1.5, depth: 3})
