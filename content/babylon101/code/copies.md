@@ -39,7 +39,18 @@ for (let i = 0; i < places.length; i++) {
 
 https://www.babylonjs-playground.com/#KBS9I5#24
 
+![Village 1](/img/campus/village1.png)
+
 As before, in order to keep the upper parts of the playground editor for newer code we will put the building of these houses into a function.
 
-![Village 1](/img/campus/village1.png)
+https://www.babylonjs-playground.com/#KBS9I5#25
+
+Now the world we are building is a little more complex let's take a file of the village and re-visit viewing it as part of a web site we want to enhance.
+
+https://www.babylonjs-playground.com/#KBS9I5#26
+
+[Prev](/babylon101/combine) Combining Meshes Using Merge Meshes  
+[Next](/babylon101/viewer2) Customizing a Viewer Camera
+
+
 

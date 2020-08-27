@@ -17,7 +17,7 @@ var createScene = function() {
 
 By following this format in you own project you can quickly drop it into your own HTML page using the following as a template.
 
-```javascript
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -89,11 +89,11 @@ allows you to use a touch screen.
 ## Examples
 The following loads models into an app.
 
-[First App](/app1.html)
+[First App](/webpages/app1.html)
 
 Given just a box is rather uninteresting and creating the app just using all Babylon.js code is as simple
 
-[First Coded App](/app2.html)
+[First Coded App](/webpages/app2.html)
 
 let's move on to learning more about using Babylon.js code and build more interesting models. We start with giving our world a ground to build on.
 

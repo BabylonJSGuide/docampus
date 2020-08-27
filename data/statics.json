@@ -57,6 +57,10 @@
                 {
                     "title": "Putting an App on the Web",
                     "filename": "first_app"
+                },
+                {
+                    "title": "App Layout on Web Page",
+                    "filename": "app2"
                 }
             ]
         },
@@ -67,6 +71,10 @@
             "files": [{
                     "title": "Viewing a Model",
                     "filename": "first_viewer"
+                },
+                {
+                    "title": "Customizing a Viewer Camera",
+                    "filename": "viewer2"
                 }
             ]
         },

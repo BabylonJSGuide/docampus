@@ -15,7 +15,7 @@ Once this is added you place the *&lt;babylon&gt;* element in an appropriate con
 <babylon model="Path to File"></babylon>
 ```
 
-[Example Web Page](/page1.html)
+[Example Web Page](/webpages/page1.html)
 
 ![Page 1](/img/campus/view1.png)
 
