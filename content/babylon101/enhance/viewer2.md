@@ -29,7 +29,7 @@ To move the camera we have to adjust its *radius* property. This has to be done 
 ```html
 <babylon id = "myViewer" extends = "minimal"></babylon>
 ```
-The following code that sets the camera radius (and in this case its angle of depression) and then load the model using
+The following code sets the camera radius (and in this case its angle of depression) and then load the model using
 
 ```javascript
 <script>
@@ -49,7 +49,7 @@ The following code that sets the camera radius (and in this case its angle of de
 
 [Example Viewer - Village](/webpages/page4.html) adjusting the camera
 
-When you are when developing a web game or app you probably want more flexibile than the Viewer can give. Let's take another look at using the HTML template.
+When you are when developing a web game or app you probably want more flexibility than the Viewer can give. Let's take another look at using the HTML template.
 
 [Prev](/babylon101/copies) Copying Meshes  
 [Next](/babylon101/app2) App Layout on Web Page

@@ -38,4 +38,7 @@ You could of course still build your scene completely from code
 
 [Example App and Instructions](/webpages/app4.html) building the village from code
 
+During the next stage in developing the world we are going to add movement by animating a very basic car. A car needs wheels that turn independently of the car body. To see how this is achieved we need to look at parenting the wheels to the body. 
+
 [Prev](/babylon101/viewer2) Customizing a Viewer Camera  
+[Next](/babylon101/parent) Combining Meshes by Parenting
